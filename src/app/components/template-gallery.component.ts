@@ -14,7 +14,7 @@ import { ResumeStoreService } from '../services/resume-store.service';
   template: `
     <section class="page-shell">
       <header class="hero">
-        <p class="eyebrow">ResumeForge</p>
+        <p class="eyebrow">Resume Maker</p>
         <h1>Choose from 10 different compact templates.</h1>
         <p class="subcopy">
           Each template is designed to look distinct while still packing content tightly enough
