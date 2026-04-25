@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATS Resume Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar no-print">
+    <h1>ATS Resume Builder</h1>
+    <div class="topbar-actions">
+      <label class="template-picker">
+        Template:
+        <select id="templateSelect">
+          <option value="t1">1 · Classic</option>
+          <option value="t2">2 · Modern</option>
+          <option value="t3">3 · Minimal</option>
+          <option value="t4">4 · Professional</option>
+          <option value="t5">5 · Elegant</option>
+          <option value="t6">6 · Compact</option>
+          <option value="t7">7 · Executive</option>
+          <option value="t8">8 · Technical</option>
+          <option value="t9">9 · Creative-Lite</option>
+          <option value="t10">10 · Two-Column ATS</option>
+        </select>
+      </label>
+      <button id="saveBtn" type="button">Save</button>
+      <button id="loadBtn" type="button">Load</button>
+      <button id="resetBtn" type="button" class="danger">Reset</button>
+      <button id="exportBtn" type="button" class="primary">Download PDF</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ===== Editor ===== -->
+    <section class="editor no-print" aria-label="Editor">
+      <div class="card">
+        <h2>Personal Info</h2>
+        <div class="grid2">
+          <label>Full Name<input data-bind="name" type="text" placeholder="Jane Doe" /></label>
+          <label>Title / Role<input data-bind="title" type="text" placeholder="Software Engineer" /></label>
+          <label>Email<input data-bind="email" type="email" placeholder="jane@example.com" /></label>
+          <label>Phone<input data-bind="phone" type="tel" placeholder="+1 555 555 5555" /></label>
+          <label>Location<input data-bind="location" type="text" placeholder="City, Country" /></label>
+          <label>Website / Portfolio<input data-bind="website" type="text" placeholder="https://..." /></label>
+          <label>LinkedIn<input data-bind="linkedin" type="text" placeholder="linkedin.com/in/..." /></label>
+          <label>GitHub<input data-bind="github" type="text" placeholder="github.com/..." /></label>
+        </div>
+        <label class="full">Professional Summary
+          <textarea data-bind="summary" rows="3" placeholder="A short ATS-friendly summary..."></textarea>
+        </label>
+      </div>
+
+      <div id="sectionsEditor" class="sections-editor"></div>
+
+      <div class="card add-section-card">
+        <h2>Add New Section</h2>
+        <p class="muted">Add custom sections like <em>Achievements</em>, <em>Publications</em>, <em>Volunteering</em>, etc.</p>
+        <div class="row">
+          <input id="newSectionTitle" type="text" placeholder="Section title (e.g., Achievements)" />
+          <select id="newSectionType">
+            <option value="list">List (bulleted items)</option>
+            <option value="experience">Experience-style (role / org / dates / bullets)</option>
+            <option value="projects">Projects (name / link / bullets)</option>
+            <option value="education">Education (degree / school / dates)</option>
+            <option value="skills">Skills (comma-separated tags)</option>
+            <option value="text">Free text paragraph</option>
+          </select>
+          <button id="addSectionBtn" type="button" class="primary">+ Add Section</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Preview ===== -->
+    <section class="preview-wrap" aria-label="Preview">
+      <div id="resume" class="resume t1">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="no-print muted center">
+    Tip: Use <strong>Download PDF</strong> → <em>Save as PDF</em> in the print dialog. Single column templates are most ATS-safe.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
