@@ -1,0 +1,190 @@
+/* ========== Base / App Chrome ========== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; background: #111827; color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.topbar h1 { font-size: 18px; margin: 0; }
+.topbar-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.template-picker { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.template-picker select { padding: 6px 8px; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; }
+
+button {
+  padding: 8px 14px; border-radius: 6px; border: 1px solid transparent;
+  background: #374151; color: #fff; cursor: pointer; font-size: 13px;
+}
+button:hover { background: #4b5563; }
+button.primary { background: #2563eb; }
+button.primary:hover { background: #1d4ed8; }
+button.danger { background: #b91c1c; }
+button.danger:hover { background: #991b1b; }
+button.subtle { background: transparent; color: #2563eb; border-color: #2563eb; }
+button.subtle:hover { background: #eff6ff; }
+button.icon-btn { padding: 4px 8px; font-size: 12px; }
+
+.layout {
+  display: grid; grid-template-columns: minmax(380px, 1fr) minmax(700px, 1fr);
+  gap: 20px; padding: 20px; align-items: start;
+}
+@media (max-width: 1100px) { .layout { grid-template-columns: 1fr; } }
+
+/* ========== Editor ========== */
+.editor { display: flex; flex-direction: column; gap: 16px; }
+.card {
+  background: #fff; border-radius: 10px; padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.card h2 { margin: 0 0 12px; font-size: 15px; text-transform: uppercase; letter-spacing: .04em; color: #374151; }
+.card h3 { margin: 0; font-size: 14px; color: #374151; }
+
+label { display: flex; flex-direction: column; font-size: 12px; color: #4b5563; gap: 4px; }
+input, textarea, select {
+  font: inherit; padding: 8px 10px; border-radius: 6px; border: 1px solid #d1d5db; background: #fff; color: #111827;
+}
+input:focus, textarea:focus, select:focus { outline: 2px solid #2563eb; outline-offset: -1px; border-color: #2563eb; }
+textarea { resize: vertical; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid2 .full, .full { grid-column: 1 / -1; margin-top: 10px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.row > input, .row > select { flex: 1; min-width: 160px; }
+
+.muted { color: #6b7280; font-size: 12px; }
+.center { text-align: center; padding: 18px; }
+
+.section-card { position: relative; }
+.section-card .section-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px;
+}
+.section-card .section-head input.section-title {
+  font-weight: 600; font-size: 14px; padding: 6px 8px; flex: 1;
+  border: 1px dashed #d1d5db; background: #f9fafb;
+}
+.section-card .section-actions { display: flex; gap: 6px; }
+.items { display: flex; flex-direction: column; gap: 10px; }
+.item {
+  border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; background: #f9fafb;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.item .item-head { display: flex; justify-content: flex-end; }
+.add-section-card .row { margin-top: 8px; }
+
+/* ========== Preview ========== */
+.preview-wrap {
+  position: sticky; top: 70px;
+  max-height: calc(100vh - 90px); overflow: auto;
+}
+.resume {
+  background: #fff; color: #111;
+  width: 8.27in; min-height: 11.69in; /* A4 */
+  margin: 0 auto; padding: 0.6in 0.7in;
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  font-size: 11pt;
+}
+.resume h1, .resume h2, .resume h3, .resume h4, .resume p, .resume ul { margin: 0; }
+.resume ul { padding-left: 1.1em; }
+.resume li { margin: 2px 0; }
+.resume a { color: inherit; text-decoration: none; }
+
+.r-header { margin-bottom: 12px; }
+.r-name { font-size: 22pt; font-weight: 700; letter-spacing: .5px; }
+.r-title { font-size: 12pt; color: #374151; margin-top: 2px; }
+.r-contact { margin-top: 6px; font-size: 10pt; color: #374151; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.r-contact span:not(:last-child)::after { content: "·"; margin-left: 12px; color: #9ca3af; }
+
+.r-section { margin-top: 14px; }
+.r-section-title {
+  font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  border-bottom: 1px solid #111; padding-bottom: 3px; margin-bottom: 6px;
+}
+.r-item { margin-top: 8px; }
+.r-item-row { display: flex; justify-content: space-between; gap: 12px; }
+.r-item-title { font-weight: 700; }
+.r-item-sub { font-style: italic; color: #374151; }
+.r-item-meta { color: #4b5563; font-size: 10pt; white-space: nowrap; }
+.r-item-link { color: #1d4ed8; font-size: 10pt; }
+.r-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.r-tag { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 4px; padding: 2px 8px; font-size: 10pt; }
+
+/* ========== 10 Templates ==========
+   All templates remain ATS-friendly: real text, single readable column
+   except t10 which uses simple two-column with proper text order.
+*/
+
+/* T1 Classic — serif, traditional */
+.resume.t1 { font-family: "Georgia", "Times New Roman", serif; }
+.resume.t1 .r-name { text-align: center; }
+.resume.t1 .r-title { text-align: center; }
+.resume.t1 .r-contact { justify-content: center; }
+.resume.t1 .r-section-title { text-align: left; }
+
+/* T2 Modern — sans, accent color */
+.resume.t2 { font-family: "Inter", "Segoe UI", Arial, sans-serif; }
+.resume.t2 .r-name { color: #0f3a8a; }
+.resume.t2 .r-section-title { color: #0f3a8a; border-bottom-color: #0f3a8a; }
+
+/* T3 Minimal — light, no rules */
+.resume.t3 { font-family: "Helvetica Neue", Arial, sans-serif; }
+.resume.t3 .r-section-title { border-bottom: none; letter-spacing: .14em; color: #374151; }
+.resume.t3 .r-name { font-weight: 300; }
+
+/* T4 Professional — strong header bar */
+.resume.t4 { font-family: "Calibri", "Segoe UI", Arial, sans-serif; }
+.resume.t4 .r-header { background: #111; color: #fff; padding: 14px 18px; margin: -0.6in -0.7in 14px; }
+.resume.t4 .r-header .r-contact { color: #e5e7eb; }
+.resume.t4 .r-section-title { color: #111; border-bottom: 2px solid #111; }
+
+/* T5 Elegant — small caps name underline */
+.resume.t5 { font-family: "Garamond", "Georgia", serif; }
+.resume.t5 .r-name { font-variant: small-caps; letter-spacing: 2px; border-bottom: 1px solid #111; padding-bottom: 6px; }
+.resume.t5 .r-section-title { font-style: italic; text-transform: none; letter-spacing: 0; border-bottom: 1px dashed #111; }
+
+/* T6 Compact — tighter spacing */
+.resume.t6 { font-family: Arial, sans-serif; font-size: 10pt; padding: 0.45in 0.55in; }
+.resume.t6 .r-section { margin-top: 10px; }
+.resume.t6 .r-item { margin-top: 5px; }
+.resume.t6 .r-name { font-size: 18pt; }
+
+/* T7 Executive — large, gravitas */
+.resume.t7 { font-family: "Cambria", "Georgia", serif; }
+.resume.t7 .r-name { font-size: 26pt; text-transform: uppercase; letter-spacing: 3px; }
+.resume.t7 .r-title { letter-spacing: 4px; text-transform: uppercase; font-size: 10pt; }
+.resume.t7 .r-section-title { letter-spacing: .2em; }
+
+/* T8 Technical — monospace accents */
+.resume.t8 { font-family: "Segoe UI", Arial, sans-serif; }
+.resume.t8 .r-name, .resume.t8 .r-section-title { font-family: "Consolas", "Menlo", monospace; }
+.resume.t8 .r-section-title::before { content: "# "; }
+
+/* T9 Creative-Lite — accent stripe (still ATS friendly) */
+.resume.t9 { font-family: "Segoe UI", Arial, sans-serif; }
+.resume.t9 .r-name { color: #7c3aed; }
+.resume.t9 .r-section-title { color: #7c3aed; border-bottom: 2px solid #7c3aed; }
+.resume.t9 .r-item-title { color: #111; }
+
+/* T10 Two-Column ATS — sidebar for skills/contact, main for content */
+.resume.t10 { font-family: "Inter", "Segoe UI", Arial, sans-serif; display: grid; grid-template-columns: 32% 1fr; column-gap: 22px; }
+.resume.t10 .r-header { grid-column: 1 / -1; }
+.resume.t10 .r-section.col-side { grid-column: 1; }
+.resume.t10 .r-section.col-main { grid-column: 2; }
+.resume.t10 .r-section-title { border-bottom: 1px solid #111; }
+
+/* ========== Print ========== */
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .layout { display: block; padding: 0; }
+  .preview-wrap { position: static; max-height: none; overflow: visible; }
+  .resume { box-shadow: none; margin: 0; width: 100%; min-height: 100vh; }
+}
